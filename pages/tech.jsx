@@ -12,118 +12,9 @@ import {
 } from 'react-icons/hi2';
 import PageTransition from '@/components/PageTransition';
 import FormalLine from '@/components/FormalLine';
+import { tech as data } from '@/assets';
 
 const tech = () => {
-  const data = [
-    {
-      title: 'VS Code',
-      id: 0,
-      main: '/icons/vscode-original.svg',
-      desc: 'Best coding IDE to ever exist, comes with tons of customization',
-      tag: 'code',
-      bg: 'bg-blue-50',
-      text: 'text-blue-500',
-    },
-    {
-      title: 'JavaScript',
-      id: 1,
-      main: '/icons/javascript-original.svg',
-      desc: 'A lightweight, interpreted, or just-in-time compiled programming language with first-class functions.',
-      tag: 'code',
-      bg: 'bg-yellow-50',
-      text: 'text-yellow-500',
-    },
-    {
-      title: 'TypeScript',
-      id: 2,
-      main: '/icons/typescript-plain.svg',
-      desc: 'SuperScript of Javascript, made by microsoft with robust type safety.',
-      tag: 'code',
-      bg: 'bg-blue-50',
-      text: 'text-blue-500',
-    },
-    {
-      title: 'React JS',
-      id: 3,
-      main: '/icons/react-original.svg',
-      desc: 'A free and open-source front-end JavaScript library for building user interfaces based on components',
-      tag: 'develop',
-      bg: 'bg-blue-50',
-      text: 'text-blue-500',
-    },
-    {
-      title: 'Next JS',
-      id: 4,
-      main: '/icons/nextjs-original.svg',
-      desc: 'An open-source web development framework providing React-based web applications.',
-      tag: 'develop',
-      bg: 'bg-gray-900',
-      text: 'text-gray-50',
-    },
-    {
-      title: 'Tailwind CSS',
-      id: 5,
-      main: '/icons/tailwindcss-plain.svg',
-      desc: 'A utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.',
-      tag: 'design',
-      bg: 'bg-green-50',
-      text: 'text-green-500',
-    },
-    {
-      title: 'Material UI',
-      id: 6,
-      main: '/icons/materialui-original.svg',
-      desc: 'A comprehensive suite of UI tools to help you ship new features faster.',
-      tag: 'develop',
-      bg: 'bg-indigo-50',
-      text: 'text-indigo-500',
-    },
-    {
-      title: 'SASS',
-      id: 7,
-      main: '/icons/sass-original.svg',
-      desc: 'CSS with superpowers. The most powerful professional grade CSS extension language in the world.',
-      tag: 'design',
-      bg: 'bg-pink-300',
-      text: 'text-pink-800',
-    },
-    {
-      title: 'Notion',
-      id: 8,
-      main: '/notion-icon.svg',
-      desc: "A new tool that blends your everyday work apps into one. It's the all-in-one workspace for you and your team.",
-      tag: 'productivity',
-      bg: 'bg-gray-900',
-      text: 'text-gray-100',
-    },
-    {
-      title: 'Figma',
-      id: 9,
-      main: '/icons/figma-original.svg',
-      desc: 'A boon for webapp designers, from wireframe to animation, it has it all.',
-      tag: 'design',
-      bg: 'bg-orange-500',
-      text: 'text-orange-100',
-    },
-    {
-      title: 'GitHub',
-      id: 10,
-      main: '/icons/github-original.svg',
-      desc: "A developer's go-to platform for collaborating and showcasing their code.",
-      tag: 'platform',
-      bg: 'bg-gray-900',
-      text: 'text-gray-100',
-    },
-    {
-      title: 'Brave',
-      id: 11,
-      main: '/brave-icon.svg',
-      desc: 'A privacy focused browser used to block ads and extra pops.',
-      tag: 'platform',
-      bg: 'bg-orange-500',
-      text: 'text-orange-100',
-    },
-  ];
   const [idNumber, setIdNumber] = useState(0);
   const changeId = (id) => {
     setIdNumber(id);
@@ -148,16 +39,16 @@ const tech = () => {
       <div className="min-h-[75vh] md:min-h-[73vh] px-10 sm:px-20 md:px-32 lg:mb-12 lg:px-60 xl:px-80 mx-auto">
         <Head>
           <title>tech ✦ vominhkhang</title>
-          <link rel="icon" href="/Avatar-white.svg" />
+          <link rel="icon" href="/khang-logo.png" />
         </Head>
         <main className="max-w-screen max-w-5xl mx-auto">
           <div className="pt-24 flex flex-col mx-auto">
             <h2 className="selection:text-black/40 dark:selection:text-white/40 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent items-center mx-auto text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold ">
               Tech Stack
             </h2>
-            <p className="mt-8 max-w-xl text-center md:w-[70%] mx-auto text-sm md:text-base lg:text-xl mb-2 px-2">
-              Just like any other dev, I also spend more time searching and
-              experimenting tools than actually coding some senseful things.
+            <p className="mt-8 max-w-xl text-justify md:w-[70%] mx-auto text-sm md:text-base lg:text-xl mb-2 px-2">
+              Like many developers, I often spend more time exploring and
+              experimenting with tools than writing meaningful code.
             </p>
             <FormalLine />
           </div>

@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <Head>
         <title>developer ✦ vominhkhang</title>
-        <link rel="icon" href="/Avatar-white.svg" />
+        <link rel="icon" href="/khang-logo.png" />
       </Head>
       <PageTransition>
         <div className="lg:min-h-screen px-10 sm:px-20 md:px-32 lg:mb-12 lg:px-60 mx-auto max-w-[75rem]">
@@ -36,8 +36,8 @@ export default function Home() {
                   height="80"
                 />
                 <div className="flex flex-col">
-                  <h2 className="flex sm:text-2xl md:text-2xl lg:text-2xl">
-                    <span className="font-semibold">Vo Minh Khang</span>
+                  <h2 className="flex sm:text-sm md:text-2xl lg:text-2xl">
+                    <span className="font-semibold ">Vo Minh Khang</span>
                   </h2>
                   <h3>
                     <motion.div
@@ -60,11 +60,11 @@ export default function Home() {
                 <a
                   href="downloads/VoMinhKhang_CV.pdf"
                   download
-                  className={`bg-gradient-to-r from-blue-500 to-pink-500 text-white font-bold py-2 px-4 rounded-full animate-gradient ${
+                  className={`sm:text-base text-sm bg-gradient-to-r from-blue-500 to-pink-500 text-white sm:font-semibold font-bold py-2 px-4 rounded-full animate-gradient ${
                     currentTheme === 'dark' ? 'shadow-sm shadow-white' : ''
                   }`}
                 >
-                  Download CV
+                  My CV
                 </a>
               </div>
             </div>

@@ -1,55 +1,123 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Button from './Button';
 import { useTheme } from 'next-themes';
+import { IoClose } from 'react-icons/io5';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import Title from './Title';
 
 const PopupModal = ({ project, onClose }) => {
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === 'system' ? systemTheme : theme;
 
+  if (!project) return null;
+
   return (
-    <motion.div
-      className="fixed inset-0 z-50 flex items-start justify-end bg-black bg-opacity-50 p-4"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      onClick={onClose}
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
       <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.8 }}
         className={`${
           currentTheme === 'dark'
             ? 'bg-gray-800 text-white'
             : 'bg-white text-black'
-        } rounded-lg shadow-lg p-6 max-w-lg w-full flex flex-col items-center overflow-y-auto max-h-full`}
-        initial={{ scale: 0.8 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 0.8 }}
-        onClick={(e) => e.stopPropagation()}
-        style={{
-          position: 'sticky',
-          top: '8%',
-          left: 0,
-          right: 0,
-          margin: '0 auto',
-          width: 'fit-content',
-        }}
+        } relative rounded-xl shadow-2xl p-6 md:p-8 max-w-2xl w-full flex flex-col items-center max-h-[120vh]`}
       >
-        <h2 className="text-2xl font-bold mb-4 text-center">{project.title}</h2>
-        <div className="flex justify-center">
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute right-4 top-4 text-2xl hover:rotate-90 transition-transform"
+        >
+          <IoClose />
+        </button>
+
+        {/* Title */}
+        <Title className="mb-4">{project.title}</Title>
+
+        {/* Project Image */}
+        <div className="relative w-full aspect-video mb-6">
           <Image
             src={project.image}
             alt={project.title}
-            width="400"
-            height="300"
-            className="rounded-lg mb-4"
+            fill
+            className="rounded-lg object-cover"
+            sizes="(max-width: 768px) 100vw, 768px"
           />
         </div>
-        <p className="mb-4 text-center">{project.description}</p>
-        <Button onClick={onClose} className="mt-4 px-4 py-2">
-          Close
-        </Button>
+
+        {/* Technologies */}
+        <div className="flex gap-2 flex-wrap justify-center mb-4">
+          {project.technologies?.map((tech, index) => (
+            <span
+              key={index}
+              className="px-3 py-1 rounded-full text-sm bg-blue-500/10 text-blue-500"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* Description */}
+        <p className="mb-6 text-gray-600 dark:text-gray-300 text-justify">
+          {project.description}
+        </p>
+
+        {/* Team & Timeline & Responsible  */}
+        <div className="w-full mb-6 space-y-4">
+          {project.responsible && (
+            <div className="text-sm">
+              <h3 className="font-semibold mb-1">Responsibilities</h3>
+              <ul className="text-gray-600 dark:text-gray-400 list-disc list-inside text-justify">
+                {project.responsible.map((member, index) => (
+                  <li key={index}>{member}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {project.team && (
+            <div className="text-sm">
+              <h3 className="font-semibold mb-1">Team Members</h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                {project.team.join(', ')}
+              </p>
+            </div>
+          )}
+
+          {project.timeline && (
+            <div className="text-sm">
+              <h3 className="font-semibold mb-1">Timeline</h3>
+              <p className="text-gray-600 dark:text-gray-400">
+                {project.timeline}
+              </p>
+            </div>
+          )}
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex gap-4">
+          {project?.github && (
+            <Button
+              href={project.github}
+              target="_blank"
+              className="flex items-center gap-2"
+            >
+              <FaGithub /> GitHub
+            </Button>
+          )}
+          {project.demo && (
+            <Button
+              href={project.demo}
+              target="_blank"
+              className="flex items-center gap-2"
+            >
+              <FaExternalLinkAlt /> Live Demo
+            </Button>
+          )}
+        </div>
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 
