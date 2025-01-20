@@ -25,7 +25,7 @@ export default function Home() {
         <div className="lg:min-h-screen px-10 sm:px-20 md:px-32 lg:mb-12 lg:px-60 mx-auto max-w-[75rem]">
           <div className="lg:h-screen 2xl:h-max max-h-[11rem] max-w-[90rem] mx-auto p-4">
             <div className="flex flex-row justify-between items-center mt-20 space-x-4">
-              <div className="flex flex-row items-center space-x-4">
+              <div className="flex flex-row items-center justify-center space-x-4">
                 <Image
                   className={`rounded-full ${
                     currentTheme === 'dark' ? 'shadow-sm shadow-white' : ''
@@ -37,7 +37,7 @@ export default function Home() {
                 />
                 <div className="flex flex-col">
                   <h2 className="flex sm:text-sm md:text-2xl lg:text-2xl">
-                    <span className="font-semibold ">Vo Minh Khang</span>
+                    <span className="font-semibold">Vo Minh Khang</span>
                   </h2>
                   <h3>
                     <motion.div
@@ -56,7 +56,7 @@ export default function Home() {
                   </h3>
                 </div>
               </div>
-              <div className="flex justify-center">
+              <div className="justify-center hidden md:flex lg:flex">
                 <a
                   href="downloads/VoMinhKhang_CV.pdf"
                   download
