@@ -6,15 +6,18 @@ import { useTheme } from 'next-themes';
 import { IoClose } from 'react-icons/io5';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import Title from './Title';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const PopupModal = ({ project, onClose }) => {
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === 'system' ? systemTheme : theme;
+  const router = useRouter();
 
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm auto-y-overflow">
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -61,7 +64,7 @@ const PopupModal = ({ project, onClose }) => {
 
         {/* Description */}
         <p className="mb-6 text-gray-600 dark:text-gray-300 text-justify">
-          {project.description}
+          {project?.description}
         </p>
 
         {/* Team & Timeline & Responsible  */}
@@ -70,7 +73,7 @@ const PopupModal = ({ project, onClose }) => {
             <div className="text-sm">
               <h3 className="font-semibold mb-1">Responsibilities</h3>
               <ul className="text-gray-600 dark:text-gray-400 list-disc list-inside text-justify">
-                {project.responsible.map((member, index) => (
+                {project?.responsible.map((member, index) => (
                   <li key={index}>{member}</li>
                 ))}
               </ul>
@@ -80,7 +83,7 @@ const PopupModal = ({ project, onClose }) => {
             <div className="text-sm">
               <h3 className="font-semibold mb-1">Team Members</h3>
               <p className="text-gray-600 dark:text-gray-400">
-                {project.team.join(', ')}
+                {project?.team.join(', ')}
               </p>
             </div>
           )}
@@ -89,7 +92,7 @@ const PopupModal = ({ project, onClose }) => {
             <div className="text-sm">
               <h3 className="font-semibold mb-1">Timeline</h3>
               <p className="text-gray-600 dark:text-gray-400">
-                {project.timeline}
+                {project?.timeline}
               </p>
             </div>
           )}
@@ -97,23 +100,23 @@ const PopupModal = ({ project, onClose }) => {
 
         {/* Action Buttons */}
         <div className="flex gap-4">
-          {project?.github && (
-            <Button
-              href={project.github}
-              target="_blank"
-              className="flex items-center gap-2"
+          {project.github && (
+            <Link
+              href={project?.github}
+              target={project.target}
+              className="flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-pink-500 hover:from-indigo-600 hover:to-pink-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-500 ease-in-out transform hover:scale-105"
             >
               <FaGithub /> GitHub
-            </Button>
+            </Link>
           )}
           {project.demo && (
-            <Button
-              href={project.demo}
-              target="_blank"
-              className="flex items-center gap-2"
+            <Link
+              href={project?.demo}
+              target={project.target}
+              className="flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-500 ease-in-out transform hover:scale-105"
             >
-              <FaExternalLinkAlt /> Live Demo
-            </Button>
+              <FaExternalLinkAlt /> Demo
+            </Link>
           )}
         </div>
       </motion.div>

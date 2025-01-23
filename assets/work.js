@@ -15,7 +15,7 @@ const work = [
     description:
       'Kepler is a robust task tracking application designed to streamline project management and team collaboration. With a modern interface and advanced features, Kepler empowers teams to stay organized and productive.',
     github: 'https://github.com/leaser019/Task-Tracking-Application',
-    demo: 'dotkepler.vercel.app',
+    demo: 'https://dotkepler.vercel.app',
     team: ['Tran Vu Khanh Hung', 'Nguyen Hoang Gia An', 'Vo Minh Khang'],
     timeline: 'September 2024 - December 2024',
     responsible: [
