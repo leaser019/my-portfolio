@@ -38,15 +38,6 @@ const Footer = () => {
           <Image src={GitHub} alt="github" width="30" />
         </Link>
         <Link
-          href="https://www.instagram.com/_leaser1/"
-          target="blank"
-          className=" dark:hover:text-purple-400 hover:text-purple-600 font-semibold"
-        >
-          {' '}
-          {/* Instagram{" "} */}
-          <Image src={Instagram} alt="instagram" width="30" />
-        </Link>
-        <Link
           href="mailto:vomkhang35@gmail.com"
           target="blank"
           rel="noreferrer"
