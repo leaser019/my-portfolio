@@ -1,0 +1,13 @@
+{
+  "header": {
+    "home": "Trang chủ",
+    "work": "Dự án",
+    "about": "Giới thiệu",
+    "tech": "Công nghệ", 
+    "timeline": "Lịch sử"
+  },
+  "home": {
+    "intro": "Tôi là sinh viên năm cuối ngành Khoa học Máy tính tại Khoa Kỹ thuật Máy tính, Đại học Quốc tế - ĐHQG-HCM, với trọng tâm là giải quyết các thách thức phức tạp thông qua các giải pháp sáng tạo. Tôi mong muốn thảo luận về cách kỹ năng của tôi có thể đóng góp cho dự án của bạn và tạo thêm giá trị cho công việc của bạn.",
+    "downloadCV": "CV của tôi"
+  }
+}

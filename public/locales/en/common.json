@@ -1,0 +1,13 @@
+{
+  "header": {
+    "home": "Home",
+    "work": "Work",
+    "about": "About", 
+    "tech": "Tech",
+    "timeline": "Timeline"
+  },
+  "home": {
+    "intro": "I am a senior Computer Science student at the School of Computer Science and Engineering, International University - VNU-HCM, with a focus on solving complex challenges through innovative solutions. I am eager to discuss how my skills can contribute to your project and add value to your work.",
+    "downloadCV": "My CV"
+  }
+}
