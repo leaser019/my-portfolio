@@ -41,7 +41,7 @@ const Timeline = () => {
     {
       id: 1,
       title: 'Front End Developer Intern',
-      duration: 'Feb 2021 - Jun 2021',
+      duration: 'Jul 2024 - Sept 2024',
       org: 'UNIT Corp',
       skills: ['JavaScript', 'React.js', 'Node.js'],
       class:
