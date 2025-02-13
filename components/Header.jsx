@@ -1,14 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState, useEffect, useRef } from 'react';
+
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
+import Image from 'next/image';
 import Link from 'next/link';
 import { MdOutlineLightMode, MdOutlineDarkMode } from 'react-icons/md';
-import LanguageSwitcher from './LanguageSwitcher';
-import { useTranslation } from 'next-i18next';
+import { IoMdArrowDropdown } from 'react-icons/io';
+import { FaGlobe, FaGlobeAmericas } from 'react-icons/fa';
 
 const Header = () => {
-  const { t } = useTranslation('common');
   const { systemTheme, theme, setTheme } = useTheme();
   const router = useRouter().asPath;
   const [mounted, setMounted] = useState(false);
@@ -21,6 +22,11 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   let [open, setOpen] = useState(false);
   const touchRef = useRef();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    router.push(router.pathname, router.asPath, { locale: lng });
+  };
 
   const clickHandler = (link) => {
     if (router != link) {
@@ -70,16 +76,13 @@ const Header = () => {
       ref={touchRef}
       className={`${
         isScrolled && 'bg-opacity-[0.5] shadow-md drop-shadow-lg '
-      } font-medium duration-500 bg-opacity-50 transition-all linear z-40 dark:text-white w-[90%] sm:w-[85%] md:w-[80%] lg:w-[70%] xl:w-[60%] max-w-6xl mx-auto  bg-white dark:bg-[#35353579] ${
+      } font-medium duration-500 bg-opacity-50 transition-all linear z-40 dark:text-white w-[75%] sm:w-[75%] md:w-[70%] lg:w-[55%] xl:w-[50%] max-w-6xl mx-auto  bg-white dark:bg-[#35353579] ${
         open && 'dark:bg-[#000] bg-opacity-100'
-      } drop-shadow-xs backdrop-blur-sm top-6 sticky rounded-2xl py-3`}
+      } drop-shadow-xs backdrop-blur-sm top-4 sticky rounded-2xl`}
     >
-      <div className="flex justify-between md:space-x-8 lg:space-x-10 xl:space-x-12 md:flex items-center place-items-center md:justify-center py-1 md:py-1 px-3 md:px-4 lg:px-6">
-        <div className="select-none order-2 md:order-1 cursor-pointer flex items-center text-gray-800 px-2 md:px-3">
-          <Link
-            href={'/'}
-            className="md:space-x-6 lg:space-x-8 py-3 md:py-0 px-6 md:px-0"
-          >
+      <div className="flex justify-between md:space-x-10 lg:space-x-12 xl:space-x-16 md:flex items-center place-items-center md:justify-center py-3 md:px-10 px-8">
+        <div className="select-none order-2 md:order-1 cursor-pointer flex items-center text-gray-800">
+          <Link href={'/'} className="">
             <div className="select-none order-2 md:order-1 cursor-pointer flex items-center text-gray-800">
               <div className="select-none order-2 md:order-1 cursor-pointer flex items-center text-gray-800">
                 <Link href="/" className="">
@@ -91,36 +94,26 @@ const Header = () => {
             </div>
           </Link>
         </div>
-        <div className="flex items-center space-x-2 md:order-last">
-          {mounted && (
-            <>
-              {currentTheme === 'dark' ? (
-                <>
-                  <button
-                    onClick={() => {
-                      setTheme('light');
-                    }}
-                    className="w-max md:order-8 fill-purple-600 "
-                  >
-                    <MdOutlineLightMode className="w-4 h-4 " />{' '}
-                  </button>
-                </>
-              ) : (
-                <>
-                  <button
-                    onClick={() => {
-                      setTheme('dark');
-                    }}
-                    className="w-max md:order-8 fill-purple-600 "
-                  >
-                    <MdOutlineDarkMode className="w-4 h-4" />{' '}
-                  </button>
-                </>
-              )}
-            </>
-          )}
-          {/* <LanguageSwitcher /> */}
-        </div>
+        {currentTheme === 'dark' ? (
+          <button
+            onClick={() => {
+              setTheme('light');
+            }}
+            className="w-max md:order-8 fill-purple-600 "
+          >
+            <MdOutlineLightMode className="w-4 h-4 " />{' '}
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              setTheme('dark');
+            }}
+            className="w-max md:order-8 fill-purple-600 "
+          >
+            <MdOutlineDarkMode className="w-4 h-4" />{' '}
+          </button>
+        )}
+
         <div
           onClick={() => setOpen(!open)}
           className="transition-all duration-500 ease-in order-3 text-lg flex flex-col space-y-[0.2rem]  cursor-pointer items-center font-semibold md:hidden"
@@ -149,10 +142,7 @@ const Header = () => {
           }`}
         >
           {Links.map((link) => (
-            <li
-              key={link.name}
-              className="md:ml-8 text-base md:my-0 my-7 px-4 md:px-0"
-            >
+            <li key={link.name} className="md:ml-8 text-base md:my-0 my-7">
               <Link
                 href={link.link}
                 onClick={() => clickHandler(`${link.name}`)}
