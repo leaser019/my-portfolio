@@ -1,124 +1,131 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import Button from './Button';
 import { useTheme } from 'next-themes';
-import { IoClose } from 'react-icons/io5';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import Title from './Title';
-import { useRouter } from 'next/router';
+import Image from 'next/image';
 import Link from 'next/link';
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
+import { IoClose } from 'react-icons/io5';
+import Title from './Title';
 
 const PopupModal = ({ project, onClose }) => {
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === 'system' ? systemTheme : theme;
-  const router = useRouter();
 
   if (!project) return null;
 
+  const skin =
+    currentTheme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-black';
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm auto-y-overflow">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-md overflow-y-auto"
+      onClick={onClose}
+    >
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
+        initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.8 }}
-        className={`${
-          currentTheme === 'dark'
-            ? 'bg-gray-800 text-white'
-            : 'bg-white text-black'
-        } relative rounded-xl shadow-2xl p-6 md:p-8 max-w-2xl w-full flex flex-col items-center max-h-[120vh]`}
+        exit={{ opacity: 0, scale: 0.9 }}
+        className={`${skin} relative w-full sm:max-w-xl lg:max-w-3xl rounded-2xl shadow-xl`}
+        onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute right-4 top-4 text-2xl hover:rotate-90 transition-transform"
-        >
-          <IoClose />
-        </button>
+        {/* Header */}
+        <header className="flex items-center justify-between px-8 py-6 border-b border-white/10">
+          <Title className="text-lg md:text-2xl">{project.title}</Title>
+          <button
+            onClick={onClose}
+            className="text-2xl transition-transform hover:rotate-90"
+          >
+            <IoClose />
+          </button>
+        </header>
 
-        {/* Title */}
-        <Title className="mb-4">{project.title}</Title>
+        {/* Body */}
+        <section className="space-y-8 px-8 py-6 max-h-[70vh] overflow-y-auto">
+          {/* Project Image */}
+          <div className="relative w-full aspect-video">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="rounded-lg object-cover"
+              sizes="(max-width: 768px) 100vw, 768px"
+            />
+          </div>
 
-        {/* Project Image */}
-        <div className="relative w-full aspect-video mb-6">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="rounded-lg object-cover"
-            sizes="(max-width: 768px) 100vw, 768px"
-          />
-        </div>
-
-        {/* Technologies */}
-        <div className="flex gap-2 flex-wrap justify-center mb-4">
-          {project.technologies?.map((tech, index) => (
-            <span
-              key={index}
-              className="px-3 py-1 rounded-full text-sm bg-blue-500/10 text-blue-500"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        {/* Description */}
-        <p className="mb-6 text-gray-600 dark:text-gray-300 text-justify">
-          {project?.description}
-        </p>
-
-        {/* Team & Timeline & Responsible  */}
-        <div className="w-full mb-6 space-y-4">
-          {project.responsible && (
-            <div className="text-sm">
-              <h3 className="font-semibold mb-1">Responsibilities</h3>
-              <ul className="text-gray-600 dark:text-gray-400 list-disc list-inside text-justify">
-                {project?.responsible.map((member, index) => (
-                  <li key={index}>{member}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-          {project.team && (
-            <div className="text-sm">
-              <h3 className="font-semibold mb-1">Team Members</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                {project?.team.join(', ')}
-              </p>
+          {/* Technologies */}
+          {project.technologies?.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-2">
+              {project.technologies.map((tech, i) => (
+                <span
+                  key={i}
+                  className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-500"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
           )}
 
-          {project.timeline && (
-            <div className="text-sm">
-              <h3 className="font-semibold mb-1">Timeline</h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                {project?.timeline}
-              </p>
-            </div>
+          {/* Description */}
+          {project.description && (
+            <p className="text-justify text-gray-600 dark:text-gray-300">
+              {project.description}
+            </p>
           )}
-        </div>
 
-        {/* Action Buttons */}
-        <div className="flex gap-4">
+          {/* Details */}
+          <div className="space-y-6">
+            {project.responsible && (
+              <div className="text-sm space-y-2">
+                <h3 className="font-semibold">Responsibilities</h3>
+                <ul className="list-disc list-inside space-y-1 text-gray-600 dark:text-gray-400">
+                  {project.responsible.map((task, i) => (
+                    <li key={i}>{task}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {project.team && (
+              <div className="text-sm space-y-2">
+                <h3 className="font-semibold">Team Members</h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {project.team.join(', ')}
+                </p>
+              </div>
+            )}
+
+            {project.timeline && (
+              <div className="text-sm space-y-2">
+                <h3 className="font-semibold">Timeline</h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {project.timeline}
+                </p>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="flex flex-wrap justify-center gap-4 px-8 py-6 border-t border-white/10">
           {project.github && (
             <Link
-              href={project?.github}
+              href={project.github}
               target={project.target}
-              className="flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-pink-500 hover:from-indigo-600 hover:to-pink-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-500 ease-in-out transform hover:scale-105"
+              className="flex items-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-indigo-500 to-pink-500 px-5 py-2 font-medium text-white transition-transform duration-300 hover:scale-105"
             >
               <FaGithub /> GitHub
             </Link>
           )}
           {project.demo && (
             <Link
-              href={project?.demo}
+              href={project.demo}
               target={project.target}
-              className="flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-500 ease-in-out transform hover:scale-105"
+              className="flex items-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 px-5 py-2 font-medium text-white transition-transform duration-300 hover:scale-105"
             >
               <FaExternalLinkAlt /> Demo
             </Link>
           )}
-        </div>
+        </footer>
       </motion.div>
     </div>
   );

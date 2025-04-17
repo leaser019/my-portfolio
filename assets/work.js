@@ -1,12 +1,26 @@
 import dotKepler from '@/public/work/dotKepler.png';
-import txtimg from '@/public/work/text-img-retr.png';
-import humanAnatomy from '@/public/work/human-anatomy.png';
-import portfolio from '@/public/work/portfolio.png';
+import evallos from '@/public/work/EVALLOS.png';
 import giftShop from '@/public/work/giftShop.png';
+import humanAnatomy from '@/public/work/human-anatomy.png';
 import motoService from '@/public/work/motoSer.png';
 import nextmind from '@/public/work/nextmind.png';
+import portfolio from '@/public/work/portfolio.png';
+import txtimg from '@/public/work/text-img-retr.png';
 
 const work = [
+  {
+    id: 0,
+    image: evallos,
+    title: 'Evallos',
+    cardDescription:
+      'Higher Education Quality Assessment and Accreditation System',
+    description:
+      'Evallos is a comprehensive platform designed to facilitate the assessment and accreditation of higher education institutions. It streamlines the evaluation process, ensuring quality standards are met and maintained.',
+    demo: 'https://evallos.aiotlab.vn/',
+    responsible: [
+      'Developed the front-end interface and integrated the back-end API to create user experience.',
+    ],
+  },
   {
     id: 1,
     image: dotKepler,

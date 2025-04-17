@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
-import Head from 'next/head';
-import ProjectCard from '@/components/ProjectCard';
-import PageTransition from '@/components/PageTransition';
 import FormalLine from '@/components/FormalLine';
+import PageTransition from '@/components/PageTransition';
+import ProjectCard from '@/components/ProjectCard';
+import Head from 'next/head';
 
 export default function Work() {
   return (

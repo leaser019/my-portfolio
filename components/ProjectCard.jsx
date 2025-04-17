@@ -1,104 +1,94 @@
-import { useState } from 'react';
+import { work as data } from '@/assets';
 import { motion } from 'framer-motion';
+import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTheme } from 'next-themes';
-import PopupModal from './PopupModal';
-import Button from './Button';
-import Transition from './Transition';
+import { useState } from 'react';
 import { BsArrowUpRight } from 'react-icons/bs';
+import Button from './Button';
+import PopupModal from './PopupModal';
 import Title from './Title';
-import { work as data } from '@/assets';
+import Transition from './Transition';
 
 const ProjectCard = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === 'system' ? systemTheme : theme;
 
-  const handleExpand = (project) => {
-    setSelectedProject(project);
-  };
-
-  const handleClose = () => {
-    setSelectedProject(null);
-  };
+  const skin =
+    currentTheme === 'dark'
+      ? 'bg-gray-800 text-white hover:bg-gray-700/80'
+      : 'bg-white text-black hover:bg-gray-50';
 
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+    <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
       {data.map((project) => (
-        <Transition
-          key={project.id}
-          delay={project.id * 100}
-          className={`rounded-xl mb-12 flex flex-col items-start p-6 ${
-            currentTheme === 'dark'
-              ? 'bg-gray-800 text-white'
-              : 'bg-white text-black'
-          } hover:bg-gray-50 dark:hover:bg-gray-700 shadow-lg backdrop-blur-sm transition-all duration-300`}
-        >
-          <Link
-            href={project?.github || project?.demo}
-            target={project.target}
-            className="relative w-full aspect-video overflow-hidden rounded-lg"
-            onClick={(e) => {
-              if (project.title === 'Portfolio') {
-                e.preventDefault();
-                alert('You are already on this site! 🤩');
-              }
-            }}
-          >
-            <Image
-              src={project.image}
-              alt={project.title}
-              fit
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover hover:scale-125 transition-all duration-700 ease-in-out transform"
-              priority={project.id === 1}
-            />
-          </Link>
-
+        <Transition key={project.id} delay={project.id * 100}>
           <motion.div
-            className="flex flex-col w-full mt-4 space-y-3"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            whileHover={{
+              y: -6,
+              boxShadow: '0 15px 25px -5px rgba(0,0,0,0.2)',
+            }}
+            className={`group relative flex flex-col overflow-hidden rounded-2xl shadow-lg transition-all duration-300 ${skin}`}
           >
-            <div className="flex items-center justify-between text-left">
-              <Title>{project.title}</Title>
-              {project?.github ? (
-                <Link
-                  href={project?.github}
-                  target={project.target}
-                  className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
-                >
-                  <BsArrowUpRight className="w-4 h-4" />
-                </Link>
-              ) : null}
-            </div>
-
-            <p className="text-gray-500 dark:text-gray-400 text-sm text-center">
-              {project.cardDescription}
-            </p>
-
-            <div className="flex flex-wrap gap-2">
-              {project.tags?.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2 py-1 text-xs rounded-md bg-gray-100 
-                    dark:bg-gray-700 text-gray-600 dark:text-gray-300"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <Button
-              className="mt-4 w-full py-2 bg-blue-500 text-white rounded-lg
-                hover:bg-blue-600 transition-colors duration-300
-                dark:bg-blue-600 dark:hover:bg-blue-700"
-              onClick={() => setSelectedProject(project)}
+            <Link
+              href={project.github || project.demo || '#'}
+              target={project.target}
+              onClick={(e) => {
+                if (project.title === 'Portfolio') {
+                  e.preventDefault();
+                  alert("You're already here! 🤩");
+                }
+              }}
+              className="relative aspect-video w-full overflow-hidden"
             >
-              Learn More
-            </Button>
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                priority={project.id === 1}
+              />
+              <div className="absolute inset-0 hidden bg-gradient-to-t from-black/50 via-black/20 to-transparent group-hover:block" />
+            </Link>
+
+            <div className="flex flex-1 flex-col space-y-4 px-6 pb-6 pt-4">
+              <div className="flex items-center justify-between">
+                <Title className="text-lg md:text-xl">{project.title}</Title>
+                {project.github && (
+                  <Link
+                    href={project.github}
+                    target={project.target}
+                    className="rounded-full p-2 transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-600"
+                  >
+                    <BsArrowUpRight className="h-4 w-4" />
+                  </Link>
+                )}
+              </div>
+
+              <p className="line-clamp-3 text-sm text-gray-600 dark:text-gray-400">
+                {project.cardDescription}
+              </p>
+
+              <div className="flex flex-wrap gap-2">
+                {project.tags?.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-md bg-gray-100 px-2 py-1 text-xs text-gray-600 dark:bg-gray-700 dark:text-gray-300"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <Button
+                className="mt-auto w-full rounded-lg bg-blue-500 py-2 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700"
+                onClick={() => setSelectedProject(project)}
+              >
+                Learn More
+              </Button>
+            </div>
           </motion.div>
         </Transition>
       ))}
