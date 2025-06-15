@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect } from 'react';
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import { IoClose } from 'react-icons/io5';
 import Title from './Title';
@@ -9,21 +9,24 @@ import Title from './Title';
 const PopupModal = ({ project, onClose }) => {
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === 'system' ? systemTheme : theme;
-
-  if (!project) return null;
-
   const skin =
     currentTheme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-black';
+  useEffect(() => {
+    console.log(
+      window.scrollTo({
+        top: document.body.scrollHeight / 3.2,
+        behavior: 'smooth',
+      })
+    );
+  }, []);
 
+  if (!project) return null;
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 backdrop-blur-md overflow-y-auto"
+      className="fixed inset-0.5 z-50 flex items-center justify-center bg-black/60 overflow-y-auto"
       onClick={onClose}
     >
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.9 }}
+      <div
         className={`${skin} relative w-full sm:max-w-xl lg:max-w-3xl rounded-2xl shadow-xl`}
         onClick={(e) => e.stopPropagation()}
       >
@@ -126,7 +129,7 @@ const PopupModal = ({ project, onClose }) => {
             </Link>
           )}
         </footer>
-      </motion.div>
+      </div>
     </div>
   );
 };

@@ -12,10 +12,10 @@ const work = [
     id: 0,
     image: evallos,
     title: 'Evallos',
-    cardDescription:
-      'Higher Education Quality Assessment and Accreditation System',
+    cardDescription: 'Higher Education Quality Assessment System',
     description:
-      'Evallos is a comprehensive platform designed to facilitate the assessment and accreditation of higher education institutions. It streamlines the evaluation process, ensuring quality standards are met and maintained.',
+      'Evallos is The assessment of the level of achievement of course learning outcomes is the most crucial step for improving the quality of the course, contributing to the assessment of the level of achievement of the learning outcomes of an academic program. Currently in the pilot phase at International University and being implemented at Nguyen Tat Thanh University.Evallos built as a system for evaluating learning outcomes at the university level, reducing manual grading by 70%.',
+    technologies: ['React', 'MongoDB', 'Express', 'ShadCN', 'Docker'],
     demo: 'https://evallos.aiotlab.vn/',
     responsible: [
       'Developed the front-end interface and integrated the back-end API to create user experience.',

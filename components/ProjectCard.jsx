@@ -3,15 +3,12 @@ import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 import { BsArrowUpRight } from 'react-icons/bs';
 import Button from './Button';
-import PopupModal from './PopupModal';
 import Title from './Title';
 import Transition from './Transition';
 
-const ProjectCard = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
+const ProjectCard = ({ onSelectProject }) => {
   const { theme, systemTheme } = useTheme();
   const currentTheme = theme === 'system' ? systemTheme : theme;
 
@@ -84,7 +81,7 @@ const ProjectCard = () => {
 
               <Button
                 className="mt-auto w-full rounded-lg bg-blue-500 py-2 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700"
-                onClick={() => setSelectedProject(project)}
+                onClick={() => onSelectProject(project)}
               >
                 Learn More
               </Button>
@@ -92,13 +89,6 @@ const ProjectCard = () => {
           </motion.div>
         </Transition>
       ))}
-
-      {selectedProject && (
-        <PopupModal
-          project={selectedProject}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
     </div>
   );
 };

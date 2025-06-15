@@ -1,9 +1,12 @@
 import FormalLine from '@/components/FormalLine';
 import PageTransition from '@/components/PageTransition';
+import PopupModal from '@/components/PopupModal';
 import ProjectCard from '@/components/ProjectCard';
 import Head from 'next/head';
+import { useState } from 'react';
 
 export default function Work() {
+  const [selectedProject, setSelectedProject] = useState(null);
   return (
     <PageTransition>
       <div className="px-10 sm:px-20 md:px-32 lg:px-60 mx-auto max-w-[75rem]">
@@ -27,8 +30,14 @@ export default function Work() {
             <FormalLine />
           </div>
           <div className="mt-20 mb-20">
-            <ProjectCard />
+            <ProjectCard onSelectProject={setSelectedProject} />
           </div>
+          {selectedProject && (
+            <PopupModal
+              project={selectedProject}
+              onClose={() => setSelectedProject(null)}
+            />
+          )}
         </main>
       </div>
     </PageTransition>
