@@ -1,11 +1,10 @@
-import { useState } from 'react';
-import Link from 'next/link';
-import LinkedIn from '../public/icons/linkedin@2x.png';
-import GitHub from '../public/icons/github@2x.png';
-import Instagram from '../public/icons/instagram@2x.png';
-import Gmail from '../public/icons/google@2x.png';
-import Image from 'next/image';
 import Star from '@/public/Star.svg';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import GitHub from '../public/icons/github@2x.png';
+import Gmail from '../public/icons/google@2x.png';
+import LinkedIn from '../public/icons/linkedin@2x.png';
 
 const Footer = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -17,69 +16,100 @@ const Footer = () => {
   };
 
   return (
-    <div className=" flex select-none text-sm  py-16 mt-16 flex-col h-max items-center mx-auto justify-center">
-      <div className="flex justify-center space-x-4 md:space-x-6 dark:text-white/70 text-gray-500 text-[0.6rem] sm:text-xs md:text-sm lg:text-md mt-2">
-        <Link
-          href="https://www.linkedin.com/in/vominhkhang"
-          target="blank"
-          className=" dark:hover:text-purple-400 hover:text-purple-600 font-semibold"
-        >
-          {' '}
-          {/* LinkedIn{" "} */}
-          <Image src={LinkedIn} alt="linkedin" width="30" />
-        </Link>
-        <Link
-          href="https://github.com/leaser019?tab=repositories"
-          target="blank"
-          className=" dark:hover:text-purple-400 hover:text-purple-600 font-semibold"
-        >
-          {' '}
-          {/* GitHub{" "} */}
-          <Image src={GitHub} alt="github" width="30" />
-        </Link>
-        <Link
-          href="mailto:vomkhang35@gmail.com"
-          target="blank"
-          rel="noreferrer"
-          className=" dark:hover:text-purple-400 hover:text-purple-600 font-semibold"
-        >
-          {' '}
-          {/* Résumé{" "} */}
-          <Image src={Gmail} alt="gmail" width="30" />
-        </Link>
-      </div>
-      <a
-        href="https://github.com/leaser019/my-portfolio"
-        target="blank"
-        rel="noreferrer"
-        className="flex flex-col text-center group hover:text-purple-800 w-max hover:font-black items-center text-gray-600 text-[0.6rem] sm:text-xs md:text-sm lg:text-md mt-8 md:mt-12 font-syne"
-      >
-        <div
-          onMouseOut={handleMouseOut}
-          onMouseOver={handleMouseOver}
-          className="relative transition-all ease-in-out duration-1000   "
-        >
-          <p
-            className={` ${
-              isHovering && 'scale-150 blur-[6px]'
-            } group font-bold animate-text duration-700 transition-all linear  group-hover:bg-white lg:text-gray-700 lg:dark:text-white/40 lg:group-hover:text-transparent bg-gradient-to-r mb-2 from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-sm sm:text-base md:text-lg`}
-          >
-            Vo Minh Khang
-          </p>
-          {isHovering && (
-            <p
-              className={`opacity-0 bg-purple-100 px-1 md:px-2 py-1 rounded-2xl bg-opacity-30 backdrop-blur-xl hover:opacity-100 transition-all duration-1000 linear absolute top-[35%] left-[50%] -translate-x-[50%]  -translate-y-[50%] w-max text-gray-800 font-bold text-base z-10 flex text-center`}
-            >
-              <span>Amazing ?</span>
-              <span className="px-1">
-                <Image src={Star} alt="star" className="h-5 w-5" />
-              </span>
-              <span>My Portfolio GitHub Repository</span>
+    <footer className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-12 mt-20 rounded-2xl shadow-2xl px-10 mx-10 mb-5 sm:mx-8 backdrop-blur-2xl border border-gray-100 dark:border-gray-700">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+          <div className="flex flex-col">
+            <h3 className="text-lg font-bold bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent">
+              Vo Minh Khang
+            </h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              Software Engineering
             </p>
-          )}
+          </div>
+
+          <div className="flex space-x-6 items-center">
+            <Link
+              href="https://www.linkedin.com/in/vominhkhang"
+              target="_blank"
+              className="transition-transform hover:scale-110"
+            >
+              <Image src={LinkedIn} alt="LinkedIn" width="28" height="28" />
+            </Link>
+            <Link
+              href="https://github.com/leaser019?tab=repositories"
+              target="_blank"
+              className="transition-transform hover:scale-110"
+            >
+              <Image src={GitHub} alt="GitHub" width="28" height="28" />
+            </Link>
+            <Link
+              href="mailto:vomkhang35@gmail.com"
+              target="_blank"
+              className="transition-transform hover:scale-110"
+            >
+              <Image src={Gmail} alt="Email" width="28" height="28" />
+            </Link>
+            {/* <Link
+              href="#"
+              className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+            >
+              Portfolio
+            </Link>
+            <Link
+              href="#"
+              className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+            >
+              Blog
+            </Link>
+            <Link
+              href="#"
+              className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+            >
+              Contact
+            </Link> */}
+          </div>
         </div>
-      </a>
-    </div>
+
+        <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              &copy; {new Date().getFullYear()} Vo Minh Khang. All rights
+              reserved.
+            </p>
+
+            <a
+              href="https://github.com/leaser019/my-portfolio"
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center mt-4 md:mt-0 hover:text-purple-600 dark:hover:text-purple-400"
+              onMouseOver={handleMouseOver}
+              onMouseOut={handleMouseOut}
+            >
+              <span className="text-sm font-medium mr-2">
+                Check out my code
+              </span>
+              <span className="relative">
+                <Image
+                  src={Star}
+                  alt="star"
+                  width="16"
+                  height="16"
+                  className={`transition-all duration-300 ${
+                    isHovering ? 'rotate-180 scale-125' : ''
+                  }`}
+                />
+                {isHovering && (
+                  <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-purple-100 dark:bg-purple-900 px-2 py-1 rounded text-xs whitespace-nowrap">
+                    Star my repo!
+                  </span>
+                )}
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
 

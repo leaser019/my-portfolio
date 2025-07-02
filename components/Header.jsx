@@ -1,13 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
-import Image from 'next/image';
 import Link from 'next/link';
-import { MdOutlineLightMode, MdOutlineDarkMode } from 'react-icons/md';
-import { IoMdArrowDropdown } from 'react-icons/io';
-import { FaGlobe, FaGlobeAmericas } from 'react-icons/fa';
+import { useRouter } from 'next/router';
+import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md';
 
 const Header = () => {
   const { systemTheme, theme, setTheme } = useTheme();
@@ -75,10 +72,12 @@ const Header = () => {
     <nav
       ref={touchRef}
       className={`${
-        isScrolled && 'bg-opacity-[0.5] shadow-md drop-shadow-lg '
-      } font-medium duration-500 bg-opacity-50 transition-all linear z-40 dark:text-white w-[75%] sm:w-[75%] md:w-[70%] lg:w-[55%] xl:w-[50%] max-w-6xl mx-auto  bg-white dark:bg-[#35353579] ${
-        open && 'dark:bg-[#000] bg-opacity-100'
-      } drop-shadow-xs backdrop-blur-sm top-4 sticky rounded-2xl`}
+        isScrolled
+          ? 'bg-white/15 dark:bg-black/15 shadow-lg shadow-blue-500/10 dark:shadow-blue-400/5'
+          : 'bg-white/10 dark:bg-black/10'
+      } font-medium duration-500 transition-all linear z-40 dark:text-white w-[75%] sm:w-[75%] md:w-[70%] lg:w-[55%] xl:w-[50%] max-w-6xl mx-auto backdrop-blur-xl border border-white/20 dark:border-gray-700/30 ${
+        open && 'dark:bg-black/20 bg-white/20 border-opacity-80'
+      } sticky top-4 rounded-2xl hover:border-opacity-75 hover:border-blue-300/30 dark:hover:border-blue-500/30 motion-safe:hover:translate-y-[1px] motion-safe:transition-all`}
     >
       <div className="flex justify-between md:space-x-10 lg:space-x-12 xl:space-x-16 md:flex items-center place-items-center md:justify-center py-3 md:px-10 px-8">
         <div className="select-none order-2 md:order-1 cursor-pointer flex items-center text-gray-800">

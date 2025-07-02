@@ -1,15 +1,14 @@
-import { useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import Head from 'next/head';
 import Image from 'next/image';
 
 import Contact from '@/components/Contact';
 import Experience from '@/components/Experience';
-import { BsArrowUpRight } from 'react-icons/bs';
-import { motion } from 'framer-motion';
-import Avatar_Black from '@/public/Avatar-black.png';
-import Link from 'next/link';
 import PageTransition from '@/components/PageTransition';
+import Avatar_Black from '@/public/Avatar-black.png';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { BsArrowUpRight } from 'react-icons/bs';
 
 export default function Home() {
   const { systemTheme, theme, setTheme } = useTheme();
@@ -81,7 +80,7 @@ export default function Home() {
           <div className="mt-10 mx-auto">
             <Experience />
           </div>
-          <div className="mt-28 mx-auto ">
+          <div className="mx-auto ">
             <Contact />
           </div>
         </div>
