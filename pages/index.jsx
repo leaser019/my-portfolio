@@ -30,7 +30,7 @@ export default function Home() {
                     currentTheme === 'dark' ? 'shadow-sm shadow-white' : ''
                   }`}
                   src={Avatar_Black}
-                  alt="vominhkhang"
+                  alt="Vo Minh Khang - Computer Science Student & Developer"
                   width="80"
                   height="80"
                 />
