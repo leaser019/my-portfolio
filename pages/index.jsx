@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Contact from '@/components/Contact';
 import Experience from '@/components/Experience';
 import PageTransition from '@/components/PageTransition';
-import Avatar_Black from '@/public/Avatar-black.png';
+import Avatar_Black from '@/public/Avatar-black.webp';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { BsArrowUpRight } from 'react-icons/bs';
@@ -18,7 +18,7 @@ export default function Home() {
     <>
       <Head>
         <title>developer ✦ vominhkhang</title>
-        <link rel="icon" href="/khang-logo.png" />
+        <link rel="icon" href="/khang-logo.webp" />
       </Head>
       <PageTransition>
         <div className="lg:min-h-screen px-10 sm:px-20 md:px-32 lg:mb-12 lg:px-60 mx-auto max-w-[75rem]">

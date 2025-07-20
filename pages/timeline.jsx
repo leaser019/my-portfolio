@@ -2,7 +2,6 @@
 import FormalLine from '@/components/FormalLine';
 import PageTransition from '@/components/PageTransition';
 import Head from 'next/head';
-import React from 'react';
 
 const Timeline = () => {
   const educationData = [
@@ -19,7 +18,7 @@ const Timeline = () => {
       ],
       class:
         'bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800',
-      logo: 'timeline/IU-logo.png',
+      logo: 'timeline/IU-logo.webp',
       description:
         'Pursuing a Bachelor’s degree in Computer Science at International University - VNU-HCM, with a comprehensive focus on software engineering, web development, data science, and artificial intelligence. The curriculum provides in-depth knowledge of real-world project management and operations, alongside entrepreneurial training, preparing students for dynamic roles in the technology industry.',
     },
@@ -34,7 +33,7 @@ const Timeline = () => {
       skills: ['React.js', 'Express.js', 'Flask', 'Deep Learning', 'IoT'],
       class:
         'bg-red-100 text-red-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300 hover:bg-red-200 dark:hover:bg-red-800',
-      logo: 'timeline/AIoTLab-Logo.png',
+      logo: 'timeline/AIoTLab-Logo.webp',
       description:
         'Developed advanced systems for psychological assessment and educational management, utilizing cutting-edge technologies in AI, IoT, and Deep Learning to create innovative solutions. Collaborated with interdisciplinary teams to enhance the functionality and user experience of educational platforms, contributing to research initiatives aimed at improving psychological evaluation methodologies through IoT integration.',
     },
@@ -46,7 +45,7 @@ const Timeline = () => {
       skills: ['JavaScript', 'React.js', 'Node.js'],
       class:
         'bg-green-100 text-green-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 hover:bg-green-200 dark:hover:bg-green-800',
-      logo: 'timeline/UNIT-logo.png',
+      logo: 'timeline/UNIT-logo.webp',
       description:
         'As a Frontend Developer Intern at UNIT, I gained valuable experience working on internal company projects, enhancing my skills in MUI, React Hook Form, and Redux. This role provided hands-on learning in modern front-end technologies and allowed me to apply them effectively in real-world scenarios.',
     },
@@ -62,7 +61,7 @@ const Timeline = () => {
       <div className="px-10 sm:px-20 md:px-32 md:-mb-52 lg:mb-0 lg:px-60 mx-auto max-w-[75rem]">
         <Head>
           <title>timeline ✦ vominhkhang</title>
-          <link rel="icon" href="/khang-logo.png" />
+          <link rel="icon" href="/khang-logo.webp" />
         </Head>
         <main className="min-h-screen max-w-screen">
           <div className="pt-24 flex flex-col items-cen mx-auto">

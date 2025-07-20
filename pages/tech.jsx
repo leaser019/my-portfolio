@@ -39,7 +39,7 @@ const tech = () => {
       <div className="min-h-[75vh] md:min-h-[73vh] px-10 sm:px-20 md:px-32 lg:mb-12 lg:px-60 xl:px-80 mx-auto">
         <Head>
           <title>tech ✦ vominhkhang</title>
-          <link rel="icon" href="/khang-logo.png" />
+          <link rel="icon" href="/khang-logo.webp" />
         </Head>
         <main className="max-w-screen max-w-5xl mx-auto">
           <div className="pt-24 flex flex-col mx-auto">

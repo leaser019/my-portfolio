@@ -1,11 +1,11 @@
-import dotKepler from '@/public/work/dotKepler.png';
-import evallos from '@/public/work/EVALLOS.png';
-import giftShop from '@/public/work/giftShop.png';
-import humanAnatomy from '@/public/work/human-anatomy.png';
-import motoService from '@/public/work/motoSer.png';
-import nextmind from '@/public/work/nextmind.png';
-import portfolio from '@/public/work/portfolio.png';
-import txtimg from '@/public/work/text-img-retr.png';
+import dotKepler from '@/public/work/dotKepler.webp';
+import evallos from '@/public/work/EVALLOS.webp';
+import giftShop from '@/public/work/giftShop.webp';
+import humanAnatomy from '@/public/work/human-anatomy.webp';
+import motoService from '@/public/work/motoSer.webp';
+import nextmind from '@/public/work/nextmind.webp';
+import portfolio from '@/public/work/portfolio.webp';
+import txtimg from '@/public/work/text-img-retr.webp';
 
 const work = [
   {

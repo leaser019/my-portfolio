@@ -12,7 +12,7 @@ export default function Work() {
       <div className="px-10 sm:px-20 md:px-32 lg:px-60 mx-auto max-w-[75rem]">
         <Head>
           <title>work ✦ vominhkhang</title>
-          <link rel="icon" href="/khang-logo.png" />
+          <link rel="icon" href="/khang-logo.webp" />
         </Head>
         <main className="min-h-screen max-w-screen">
           <div className="pt-24 flex flex-col items-center mx-auto">

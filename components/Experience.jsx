@@ -1,11 +1,11 @@
+import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTheme } from 'next-themes';
 
 import { BsArrowUpRight } from 'react-icons/bs';
 
-import FloatBlack from '@/public/float-black.png';
-import FloatWhite from '@/public/float-white.png';
+import FloatBlack from '@/public/float-black.webp';
+import FloatWhite from '@/public/float-white.webp';
 import FormalLine from './FormalLine';
 
 const Experience = () => {

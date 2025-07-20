@@ -1,17 +1,14 @@
-import { useEffect } from 'react';
-
 import { useTheme } from 'next-themes';
 import Head from 'next/head';
 import Image from 'next/image';
 
 import CategoryCard from '@/components/CategoryCard';
 
-import Flash from '@/public/Flash.svg';
-import Hero from '@/public/hero.png';
+import FormalLine from '@/components/FormalLine';
+import PageTransition from '@/components/PageTransition';
+import Hero from '@/public/hero.webp';
 import love_black from '@/public/love-black.svg';
 import love_white from '@/public/love-white.svg';
-import PageTransition from '@/components/PageTransition';
-import FormalLine from '@/components/FormalLine';
 
 export default function About() {
   const { systemTheme, theme, setTheme } = useTheme();
@@ -22,7 +19,7 @@ export default function About() {
       <div className="px-10 sm:px-20 md:px-32 lg:mb-12 lg:px-60 mx-auto max-w-[75rem]">
         <Head>
           <title>about ✦ vominhkhang</title>
-          <link rel="icon" href="/khang-logo.png" />
+          <link rel="icon" href="/khang-logo.webp" />
         </Head>
         <main className="  max-w-screen ">
           <div className=" mx-auto pt-16 -pb-10 max-w-7xl">
