@@ -33,6 +33,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/vominhkhang"
               target="_blank"
               className="transition-transform hover:scale-110"
+              aria-label="LinkedIn"
             >
               <Image src={LinkedIn} alt="LinkedIn" width="28" height="28" />
             </Link>
@@ -40,6 +41,7 @@ const Footer = () => {
               href="https://github.com/leaser019?tab=repositories"
               target="_blank"
               className="transition-transform hover:scale-110"
+              aria-label="Github"
             >
               <Image src={GitHub} alt="GitHub" width="28" height="28" />
             </Link>
@@ -47,6 +49,7 @@ const Footer = () => {
               href="mailto:vomkhang35@gmail.com"
               target="_blank"
               className="transition-transform hover:scale-110"
+              aria-label="Email"
             >
               <Image src={Gmail} alt="Email" width="28" height="28" />
             </Link>
@@ -78,13 +81,14 @@ const Footer = () => {
               reserved.
             </p>
 
-            <a
+            <Link
               href="https://github.com/leaser019/my-portfolio"
               target="_blank"
               rel="noreferrer"
               className="group flex items-center mt-4 md:mt-0 hover:text-purple-600 dark:hover:text-purple-400"
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
+              aria-label="LMy Repository"
             >
               <span className="text-sm font-medium mr-2">
                 Check out my code
@@ -105,7 +109,7 @@ const Footer = () => {
                   </span>
                 )}
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -38,6 +38,7 @@ const ProjectCard = ({ onSelectProject }) => {
                 }
               }}
               className="relative aspect-video w-full overflow-hidden"
+              aria-label={project.title}
             >
               <Image
                 src={project.image}
@@ -57,6 +58,7 @@ const ProjectCard = ({ onSelectProject }) => {
                   <Link
                     href={project.github}
                     target={project.target}
+                    aria-label={project.title}
                     className="rounded-full p-2 transition-colors duration-200 hover:bg-gray-100 dark:hover:bg-gray-600"
                   >
                     <BsArrowUpRight className="h-4 w-4" />

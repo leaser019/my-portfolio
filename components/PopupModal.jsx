@@ -114,6 +114,7 @@ const PopupModal = ({ project, onClose }) => {
             <Link
               href={project.github}
               target={project.target}
+              aria-label={project.title}
               className="flex items-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-indigo-500 to-pink-500 px-5 py-2 font-medium text-white transition-transform duration-300 hover:scale-105"
             >
               <FaGithub /> GitHub
@@ -123,6 +124,7 @@ const PopupModal = ({ project, onClose }) => {
             <Link
               href={project.demo}
               target={project.target}
+              aria-label={project.title}
               className="flex items-center gap-2 whitespace-nowrap rounded-full bg-gradient-to-r from-yellow-500 to-orange-500 px-5 py-2 font-medium text-white transition-transform duration-300 hover:scale-105"
             >
               <FaExternalLinkAlt /> Demo
