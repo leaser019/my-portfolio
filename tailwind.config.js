@@ -7,6 +7,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        out: ['var(--font-outfit)', 'sans-serif'],
+        lexend: ['var(--font-lexend-deca)', 'sans-serif'],
+        mono: ['var(--font-space-mono)', 'monospace'],
+        nunito: ['var(--font-nunito)', 'sans-serif'],
+        quick: ['var(--font-quicksand)', 'sans-serif'],
+      },
       keyframes: {
         text: {
           '0%, 100%': {

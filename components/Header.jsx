@@ -81,41 +81,45 @@ const Header = () => {
     >
       <div className="flex justify-between md:space-x-10 lg:space-x-12 xl:space-x-16 md:flex items-center place-items-center md:justify-center py-3 md:px-10 px-8">
         <div className="select-none order-2 md:order-1 cursor-pointer flex items-center text-gray-800">
-          <Link href={'/'} className="">
-            <div className="select-none order-2 md:order-1 cursor-pointer flex items-center text-gray-800">
-              <div className="select-none order-2 md:order-1 cursor-pointer flex items-center text-gray-800">
-                <Link href="/" className="">
-                  <h1 className="font-jak font-bold text-lg md:text-xl bg-gradient-to-r from-[#2563eb] via-[#60a5fa] to-[#2563eb] dark:from-[#3b82f6] dark:via-[#60a5fa] dark:to-[#3b82f6] bg-clip-text text-transparent bg-[length:200%_auto] hover:bg-[length:100%_auto] transition-all duration-500 animate-gradient">
-                    Minh Khang
-                  </h1>
-                </Link>
-              </div>
-            </div>
-          </Link>
+          <div className="select-none order-2 md:order-1 cursor-pointer flex items-center text-gray-800">
+            <Link 
+              href="/" 
+              className=""
+              aria-label="Go to home page"
+            >
+              <h1 className="font-jak font-bold text-lg md:text-xl bg-gradient-to-r from-[#2563eb] via-[#60a5fa] to-[#2563eb] dark:from-[#3b82f6] dark:via-[#60a5fa] dark:to-[#3b82f6] bg-clip-text text-transparent bg-[length:200%_auto] hover:bg-[length:100%_auto] transition-all duration-500 animate-gradient">
+                Minh Khang
+              </h1>
+            </Link>
+          </div>
         </div>
         {currentTheme === 'dark' ? (
           <button
             onClick={() => {
               setTheme('light');
             }}
-            className="w-max md:order-8 fill-purple-600 "
+            className="w-max md:order-8 fill-purple-600"
+            aria-label="Switch to light theme"
           >
-            <MdOutlineLightMode className="w-4 h-4 " />{' '}
+            <MdOutlineLightMode className="w-4 h-4" />
           </button>
         ) : (
           <button
             onClick={() => {
               setTheme('dark');
             }}
-            className="w-max md:order-8 fill-purple-600 "
+            className="w-max md:order-8 fill-purple-600"
+            aria-label="Switch to dark theme"
           >
-            <MdOutlineDarkMode className="w-4 h-4" />{' '}
+            <MdOutlineDarkMode className="w-4 h-4" />
           </button>
         )}
 
-        <div
+        <button
           onClick={() => setOpen(!open)}
-          className="transition-all duration-500 ease-in order-3 text-lg flex flex-col space-y-[0.2rem]  cursor-pointer items-center font-semibold md:hidden"
+          className="transition-all duration-500 ease-in order-3 text-lg flex flex-col space-y-[0.2rem] cursor-pointer items-center font-semibold md:hidden"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
         >
           <div
             className={` ${
@@ -132,7 +136,7 @@ const Header = () => {
               open && '-rotate-45 -translate-y-[5px]'
             } relative rounded-xl origin-center transition-all duration-500 ease-in w-4 h-[0.1125rem] dark:bg-white/70 dark:text-white/70 fill-black text-black bg-black`}
           ></div>
-        </div>
+        </button>
         <ul
           className={` rounded-3xl md:rounded-none  ${
             open ? 'dark:bg-[#000]' : 'dark:bg-[#35353500]'
@@ -150,6 +154,8 @@ const Header = () => {
                     ? ' text-purple-400 font-out'
                     : ' text-gray-700 dark:text-white font-out'
                 } hover:text-purple-500 dark:hover:text-purple-500 duration-500`}
+                aria-label={`Go to ${link.name} page`}
+                aria-current={router === link.link ? "page" : undefined}
               >
                 <span>{link.name}</span>
               </Link>

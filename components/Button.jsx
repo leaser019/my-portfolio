@@ -5,6 +5,7 @@ const Button = ({
   className = '',
   type = 'button',
   disabled = false,
+  ariaLabel,
 }) => {
   return (
     <button
@@ -14,6 +15,7 @@ const Button = ({
       } ${className}`}
       onClick={onClick}
       disabled={disabled}
+      aria-label={ariaLabel || (typeof children === 'string' ? children : 'Button')}
     >
       {children}
     </button>

@@ -35,10 +35,10 @@ export default function Home() {
                   height="80"
                 />
                 <div className="flex flex-col">
-                  <h2 className="flex sm:text-sm md:text-2xl lg:text-2xl">
+                  <h1 className="flex sm:text-sm md:text-2xl lg:text-2xl">
                     <span className="font-semibold">Vo Minh Khang</span>
-                  </h2>
-                  <h3>
+                  </h1>
+                  <h2>
                     <motion.div
                       whileHover={{ y: -3 }}
                       transition={{ type: 'spring', stiffness: 300 }}
@@ -47,12 +47,13 @@ export default function Home() {
                         href={'https://www.linkedin.com/in/vominhkhang'}
                         target="_blank"
                         className="text-[#717171bb] flex items-center"
+                        aria-label="Visit LinkedIn profile"
                       >
                         <p>@vominhkhang</p>
                         <BsArrowUpRight className="stroke-1 h-3 ml-1" />
                       </Link>
                     </motion.div>
-                  </h3>
+                  </h2>
                 </div>
               </div>
               <div className="justify-center hidden md:flex lg:flex">
@@ -62,6 +63,7 @@ export default function Home() {
                   className={`sm:text-base text-sm bg-gradient-to-r from-blue-500 to-pink-500 text-white sm:font-semibold font-bold py-2 px-4 rounded-full animate-gradient ${
                     currentTheme === 'dark' ? 'shadow-sm shadow-white' : ''
                   }`}
+                  aria-label="Download my CV (PDF)"
                 >
                   My CV
                 </a>
