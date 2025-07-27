@@ -1,7 +1,6 @@
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import ScrollToTop from '@/components/ScrollToTop';
-// import SchemaOrg from '@/components/SchemaOrg';
 import {
   inter,
   lexendDeca,
@@ -33,7 +32,6 @@ export default function App({ Component, pageProps }) {
         <Analytics />
         <Footer />
         <ScrollToTop />
-        {/* <SchemaOrg path={router.pathname} /> */}
       </main>
     </ThemeProvider>
   );

@@ -1,7 +1,7 @@
 {
-  "name": "portfolio-v3",
-  "version": "0.1.0",
-  "private": true,
+  "name": "portfolio-vominhkhang",
+  "version": "1.0.0",
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
